@@ -21,17 +21,17 @@ def substring_search(txt: str, length: int) -> int:
     unique_dict = dict()
     for i in range(len(txt)-length+1):
         substring = txt[i:i+length]
-        if substring and reversed(substring) not in unique_dict:
+        if substring not in unique_dict:
             if unique_symbol_check(substring):
                 unique_dict[substring] = 1
         else:
             pass
-    print(unique_dict)
+    if len(unique_dict) > 0:
+        print(f"Подстроки длинной в  {length} символ(ы) {unique_dict}")
     return len(unique_dict)
 
 
 def substring_count(txt: str) -> int:
-    # unique_substrings = dict()
     unique_substrings_count = 0
     min_len = 1
     while min_len < len(txt):
