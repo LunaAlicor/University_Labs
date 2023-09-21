@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .error-message {
+            color: red;
+        }
+        .success-message {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Форма регистрации</h1>
+    <form>
+        <div>
+            <label for="login">Логин:</label>
+            <input type="text" id="login" required>
+        </div>
+        <div>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" required>
+        </div>
+        <div>
+            <label for="confirmPassword">Повторите пароль:</label>
+            <input type="password" id="confirmPassword" required>
+            <img src="error.png" alt="Ошибка" id="errorImage" style="display: none; width: 10%;">
+            <img src="success.png" alt="успех" id="successImage" style="display: none; width: 10%;">
+            <span id="errorMessage" class="error-message" style="display: none;">Пароли не совпадают</span>
+            <span id="successMessage" class="success-message" style="display: none;">Пароли совпадают</span>
+        </div>
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+    <script>
+        var passwordInput = document.getElementById('password');
+        var confirmPasswordInput = document.getElementById('confirmPassword');
+        var errorImage = document.getElementById('errorImage');
+        var errorMessage = document.getElementById('errorMessage');
+        var successMessage = document.getElementById('successMessage');
+
+        confirmPasswordInput.addEventListener('input', function() {
+            if (confirmPasswordInput.value === passwordInput.value) {
+                errorImage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'block';
+                successImage.style.display = 'block';
+            } else {
+                errorImage.style.display = 'block';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                successImage.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

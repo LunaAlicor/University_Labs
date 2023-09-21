@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var images = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"];
+        var currentIndex = 0;
+
+        function imgchange() {
+            var img = document.getElementById("img0");
+            currentIndex = (currentIndex + 1) % images.length;
+            img.src = images[currentIndex];
+        }
+    </script>
+</head>
+<body>
+    <img id="img0" src="img/1.jpg" onclick="imgchange()">
+</body>
+</html>

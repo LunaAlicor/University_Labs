@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* CSS styles for form fields */
+        input[type="radio"] {
+            margin-bottom: 10px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        /* CSS styles for correct and incorrect answers */
+        .correct {
+            background-color: green;
+        }
+        
+        .incorrect {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Тест</h2>
+
+        <h3>Вопрос 1:</h3>
+        <h4>Можно ли вам  оставаться на указанном месте для посадки пассажиров?</h4>
+        <label for="q1a">Можно</label>
+        <input type="radio" id="q1a" name="q1" value="a">
+        <label for="q1b">Нельзя</label>
+        <input type="radio" id="q1b" name="q1" value="b">
+        <label for="q1c">Ответ C</label>
+        <input type="radio" id="q1c" name="q1" value="c">
+
+        <h3>Вопрос 2:</h3>
+        <h4>На какой свет можно переходить дорогу?</h4>
+        <label for="q2a">Красный</label>
+        <input type="radio" id="q2a" name="q2" value="a">
+        <label for="q2b">Зеленый</label>
+        <input type="radio" id="q2b" name="q2" value="b">
+        <label for="q2c">Желтый</label>
+        <input type="radio" id="q2c" name="q2" value="c">
+
+        <h3>Вопрос 3:</h3>
+        <h4>Сегодня солнечно ?</h4>
+        <label for="q3a">Да</label>
+        <input type="radio" id="q3a" name="q3" value="a">
+        <label for="q3b">Нет</label>
+        <input type="radio" id="q3b" name="q3" value="b">
+        <label for="q3c">Неправильный ответ</label>
+        <input type="radio" id="q3c" name="q3" value="c">
+        <br>
+
+        <input type="submit" value="Проверить ответы">
+    </form>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var answers = {
+                'q1': 'a',
+                'q2': 'b',
+                'q3': 'c'
+            };
+
+            var radios = document.querySelectorAll('input[type="radio"]');
+            for (var i = 0; i < radios.length; i++) {
+                var radioButton = radios[i];
+                var question = radioButton.getAttribute('name');
+                var selectedAnswer = radioButton.value;
+                var questionDiv = document.querySelector('label[for="' + radioButton.getAttribute('id') + '"]').parentNode;
+                console.log(answers[question])
+                if (selectedAnswer === answers[question]) {
+                    questionDiv.classList.add('correct');
+                    questionDiv.classList.remove('incorrect');
+                } else {
+                    questionDiv.classList.add('incorrect');
+                    questionDiv.classList.remove('correct');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

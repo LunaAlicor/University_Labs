@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* CSS styles for form fields */
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        select {
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* CSS styles for form field states */
+        .required {
+            border-color: red;
+        }
+
+        .optional {
+            border-color: #ccc;
+        }
+
+        .valid {
+            border-color: green;
+        }
+
+        .invalid {
+            border-color: red;
+        }
+
+        .checked {
+            background-color: #C3E6CB;
+        }
+
+        /* CSS styles for language dropdown list */
+        .lang {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="required" required pattern="[А-Яа-яЁё]+">
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="required" required>
+        <br>
+
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" class="required" required min="16" max="65">
+        <br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" class="optional">
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br>
+
+        <label for="language">Language:</label>
+        <select id="language" class="lang required" required>
+            <option value="">Select</option>
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="es">Spanish</option>
+            <option value="de">German</option>
+        </select>
+        <br>
+
+        <label for="agree">Agree to terms:</label>
+        <input type="checkbox" id="agree" class="checked" checked>
+        <br>
+        <label>
+            <input type="radio" name="education" value="student">
+            Студент
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="education" value="school student">
+            Школьник
+          </label>
+        <br>
+
+        <input type="submit" value="Submit">
+        
+    </form>
+</body>
+</html>
+
+<!-- 
+Паттерны
+Радиокнопка
+Добавить в сайт -->
