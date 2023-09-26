@@ -43,21 +43,22 @@
             <b>Сколько вам лет? :</b>
             <input class="input" id="Age" type="number" placeholder="Введите возраст: ">
 
-
-            <b>Ваш рост (cm) :</b>
-            <input class="input" id="Height" type="number" placeholder="Введите рост в см: ">
-
-            <b>Ваш вес (kg) :</b>
-            <input class="input" id="Weight" type="number" placeholder="Введите вес в кг: ">
-
-            <button class="btn">Рассчитать ИМТ</button>
-
-            <input  class="input" id="bmi-result" type="text" placeholder="ИМТ" disabled>
-
-            <h4 class="info-text">Результат : 
-                <span id="weight-condition"></span>
-            </h4>
-            <br>
+            <div id="additionalFields" style="display: none;">
+                <b>Ваш рост (cm) :</b>
+                <input class="input" id="Height" type="number" placeholder="Введите рост в см: ">
+                <br>
+                <b>Ваш вес (kg) :</b>
+                <input class="input" id="Weight" type="number" placeholder="Введите вес в кг: ">
+                <br>
+                <button class="btn">Рассчитать ИМТ</button>
+                <br>
+                <input  class="input" id="bmi-result" type="text" placeholder="ИМТ" disabled>
+                <br>
+                <h4 class="info-text">Результат : 
+                    <span id="weight-condition"></span>
+                </h4>
+                <br>
+            </div>
             
         </div>
     </section>

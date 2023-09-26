@@ -2,14 +2,17 @@ document.querySelector(".btn").addEventListener("click", function () {
     var clickSound = new Audio("sounds/click-sound.wav");
     clickSound.play();
 
-    const heightValue = document.querySelector("#Height").value / 100;
-    const weightValue = document.querySelector("#Weight").value;
     const ageValue = parseInt(document.querySelector("#Age").value);
-
-    const bmiinput = document.querySelector("#bmi-result");
+    const additionalFields = document.getElementById('additionalFields');
+    const heightInput = document.querySelector("#Height");
+    const weightInput = document.querySelector("#Weight");
+    const bmiInput = document.querySelector("#bmi-result");
     let bmi;
 
-    if ((document.querySelector("#athlete-no").checked && ageValue >= 18 && ageValue <= 65)) {
+    if (document.querySelector("#athlete-no").checked && ageValue >= 18 && ageValue <= 65) {
+        const heightValue = heightInput.value / 100;
+        const weightValue = weightInput.value;
+
         bmi = weightValue / (heightValue * heightValue);
 
         if (bmi < 16) {
@@ -24,7 +27,7 @@ document.querySelector(".btn").addEventListener("click", function () {
             document.querySelector("#weight-condition").innerHTML = "Ожирение 1-ой степени";
         } else if (bmi > 35 && bmi <= 40) {
             document.querySelector("#weight-condition").innerHTML = "Ожирение 2-ой степени";
-        } else{
+        } else {
             document.querySelector("#weight-condition").innerHTML = "Ожирение 3-ой степени";
         }
     } else {
@@ -32,5 +35,15 @@ document.querySelector(".btn").addEventListener("click", function () {
         bmi = "";
     }
 
-    bmiinput.value = bmi;
+    bmiInput.value = bmi;
+});
+
+document.querySelectorAll("input[name='athlete']").forEach(input => {
+    input.addEventListener('change', () => {
+        if (input.value === 'yes') {
+            additionalFields.style.display = 'none';
+        } else {
+            additionalFields.style.display = 'block';
+        }
+    });
 });
