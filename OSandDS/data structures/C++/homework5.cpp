@@ -14,6 +14,7 @@ Code, Compile, Run and Debug online from anywhere in world.
 #include <algorithm>
 #include <ctime>
 #include <chrono>
+#include <unordered_map>
 
 using namespace std;
 
@@ -22,29 +23,34 @@ template<typename T>
 void block_sort(std::vector<T>& arr, bool reverse_flag, int& num_comparisons, int& num_swaps) {
     int n = arr.size();
 
-    if (n == 0) {
+    if (n <= 1) {
         return;
     }
 
-    if (std::is_integral<T>::value || std::is_floating_point<T>::value) {
-        // Сортировка чисел
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                num_comparisons++;
-                if ((!reverse_flag && arr[j] > arr[j + 1]) || (reverse_flag && arr[j] < arr[j + 1])) {
-                    std::swap(arr[j], arr[j + 1]);
-                    num_swaps++;
-                }
-            }
-        }
-    } else if (std::is_same<T, std::string>::value) {
-        // Сортировка строк
-        if (reverse_flag) {
-            std::sort(arr.rbegin(), arr.rend());
-        } else {
-            std::sort(arr.begin(), arr.end());
-        }
+    
+    std::unordered_map<T, std::vector<T>> blocks;
+
+    for (const T& element : arr) {
+        blocks[element].push_back(element);
     }
+
+    arr.clear();
+
+    
+    for (auto& kvp : blocks) {
+        std::vector<T>& block = kvp.second;
+        if (reverse_flag) {
+            std::reverse(block.begin(), block.end());
+        }
+        arr.insert(arr.end(), block.begin(), block.end());
+
+        
+        num_comparisons += block.size() - 1; 
+        num_swaps += block.size() - 1;       
+    }
+
+    
+    std::sort(arr.begin(), arr.end());
 }
 
 
