@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .top { 
+        background: #e3e8cc; 
+        border: solid 1px black; 
+        padding: 10px 0 10px 10px; 
+        margin-bottom: 5px; 
+        font-size: 24px; 
+        font-weight: bold; 
+    }
+    .menu { 
+        width: 20%; 
+        background: #e3e8cc; 
+        border: solid 1px black;
+        float: left; 
+        padding: 3px; 
+    }
+    .content { 
+        background: #e3e8cc; 
+        border: solid 1px black; 
+        margin-left: 21%; 
+        margin-bottom: 5px 
+    }
+    .content p{
+        padding: 3px; 
+    }
+    .bottom { 
+        background: #e3e8cc; 
+        border: solid 1px black; 
+        padding: 3px; 
+    }
+    input {
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        select {
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* CSS styles for form field states */
+        .required {
+            border-color: red;
+        }
+
+        .optional {
+            border-color: #ccc;
+        }
+
+        .valid {
+            border-color: green;
+        }
+
+        .invalid {
+            border-color: red;
+        }
+
+        .checked {
+            background-color: #C3E6CB;
+        }
+
+        /* CSS styles for language dropdown list */
+        .lang {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">Главная траница</div>
+  <div class="menu">
+   <a href="index.html">главная <br></a>
+   <a href="str1.html">текст 1<br></a>
+    <a href="str2.html">текст 2<br></a>
+    <a href="imt.html">Калькулятор массы тела</a>
+    <br>
+    <a href="shop.html">Корзина</a>
+
+  </div>
+  <div class="content">
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="required" required pattern="[А-Яа-яЁё]+">
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="required" required>
+        <br>
+
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" class="required" required min="16" max="65">
+        <br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" class="optional">
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br>
+
+        <label for="language">Language:</label>
+        <select id="language" class="lang required" required>
+            <option value="">Select</option>
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="es">Spanish</option>
+            <option value="de">German</option>
+        </select>
+        <br>
+
+        <label for="agree">Agree to terms:</label>
+        <input type="checkbox" id="agree" class="checked" checked>
+        <br>
+        <label>
+            <input type="radio" name="education" value="student">
+            Студент
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="education" value="school student">
+            Школьник
+          </label>
+        <br>
+
+        <input type="submit" value="Submit">
+        
+    </form>
+  </div>
+  <div class="bottom">
+   Подвал
+  </div>
+
+    
+</body>
+</html>
