@@ -2,7 +2,7 @@
 <html>
 <head>
     <style>
-        /* CSS styles for form fields */
+        
         input[type="radio"] {
             margin-bottom: 10px;
         }
@@ -12,7 +12,7 @@
             margin-bottom: 10px;
         }
         
-        /* CSS styles for correct and incorrect answers */
+        
         .correct {
             background-color: green;
         }
@@ -65,10 +65,15 @@
             <br>
             </div>
 
-            <button id="checkButton">Попробовать еще раз</button>
+            <button id="checkButton">Пройти тест</button>
             <button id="resetButton">Проверить</button>
         </div>
     </form>
+
+    <div id="reloadButton" style="display: none;">
+        <button onclick="location.reload()">Пройти еще раз</button>
+
+    </div>
 
     <script>
 
@@ -84,6 +89,8 @@
             resultMessage.textContent = 'Количество правильных ответов: ' + correctAnswers + ' / ' + totalQuestions;
             testContainer.appendChild(resultMessage);
             testContainer.style.display = 'none';
+            reloadButton.style.display = "block";
+
         }
 
 
@@ -152,7 +159,7 @@ document.querySelector('#checkButton').addEventListener('click', function() {
                 testContainer.appendChild(resultMessage);
             }
 
-            // Восстановление выборов из Local Storage
+            
             restoreChoicesFromLocalStorage();
         });
 
